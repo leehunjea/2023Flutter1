@@ -29,12 +29,11 @@ class _FirstPageState extends State<FirstPage> {
             child: Text('다음 페이지로 이동'),
             onPressed: () async {
               final person = new Person('홍길동', 30);
-              final result = await Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => SecondPage(person: person)),
-              );
+              final result = await Navigator.pushNamed(
+                  context,
+                  'second');
               setState(() {
-                resultStr = result;
+
               });
             },
           ),

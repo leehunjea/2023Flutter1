@@ -1,7 +1,5 @@
-import 'package:ch06/FirstPage.dart';
-import 'package:ch06/SecondPage.dart';
+import 'package:ch07/MyHomePage.dart';
 import 'package:flutter/material.dart';
-
 
 void main() {
   runApp(const MyApp());
@@ -10,7 +8,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,12 +16,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      //home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      home : FirstPage(),
-      routes: {
-        '/first' : (context)=>FirstPage(),
-        '/second': (context)=>SecondPage(),
-      },
+      home: MyHomePage(),
     );
   }
 }
