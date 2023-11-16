@@ -1,3 +1,6 @@
+import 'package:ch07/Page1.dart';
+import 'package:ch07/Page2.dart';
+import 'package:ch07/Page3.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -9,18 +12,32 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   var _index = 0;
+  var _pages = [
+    Page1(),
+    Page2(),
+    Page3(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('복잡한 UI'),
+        title: Text(
+            '복잡한 UI',
+          style: TextStyle(
+              fontSize: 30,
+              color: Colors.white
+          ),
+        ),
+        backgroundColor: Colors.grey,
+        centerTitle: true,
+        actions: [
+          IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.add),
+          ),
+        ],
       ),
-      body: Center(
-          child: Text(
-              '$_index 페이지',
-            style: TextStyle(fontSize: 40),
-          )
-      ),
+      body: _pages[_index],
       bottomNavigationBar: BottomNavigationBar(
         onTap: (index) {
           setState(() {
