@@ -5,24 +5,25 @@ class PuzzleUI extends StatefulWidget {
   const PuzzleUI({super.key});
 
   @override
-  State<PuzzleUI> createState() => _PuzzleUI();
+  State<PuzzleUI> createState() => _PuzzleUIState();
 }
 
-class _PuzzleUI extends State<PuzzleUI> {
+class _PuzzleUIState extends State<PuzzleUI> {
   PuzzleGame pg = new PuzzleGame();
 
   String GetButtonText(int index){
-    int value = pg.Getvalue(index);
+    int value = pg.GetValue(index);
     if (value == 0)
-     return '';
+      return '';
     else
       return '$value';
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Number Sorting Puzzle'),
+        title: Text('Listview / ListTile'),
         backgroundColor: Colors.blue,
       ),
       body: GridView.count(
@@ -32,107 +33,97 @@ class _PuzzleUI extends State<PuzzleUI> {
         crossAxisCount: 4,
         children: [
           ElevatedButton(
-            onPressed: (){MoveButton(0);},
+            onPressed: (){},
             child: Text(GetButtonText(0)),
           ),
           ElevatedButton(
-            onPressed: (){MoveButton(1);},
+            onPressed: (){},
             child: Text(GetButtonText(1)),
           ),
           ElevatedButton(
-            onPressed: (){MoveButton(2);},
+            onPressed: (){},
             child: Text(GetButtonText(2)),
           ),
           ElevatedButton(
-            onPressed: (){MoveButton(3);},
+            onPressed: (){},
             child: Text(GetButtonText(3)),
           ),
           ElevatedButton(
-            onPressed: (){MoveButton(4);},
+            onPressed: (){},
             child: Text(GetButtonText(4)),
           ),
           ElevatedButton(
-            onPressed: (){MoveButton(5);},
+            onPressed: (){},
             child: Text(GetButtonText(5)),
           ),
           ElevatedButton(
-            onPressed: (){MoveButton(6);},
+            onPressed: (){},
             child: Text(GetButtonText(6)),
           ),
           ElevatedButton(
-            onPressed: (){MoveButton(7);},
+            onPressed: (){},
             child: Text(GetButtonText(7)),
           ),
           ElevatedButton(
-            onPressed: (){MoveButton(8);},
+            onPressed: (){},
             child: Text(GetButtonText(8)),
           ),
           ElevatedButton(
-            onPressed: (){MoveButton(9);},
+            onPressed: (){},
             child: Text(GetButtonText(9)),
           ),
           ElevatedButton(
-            onPressed: (){MoveButton(10);},
+            onPressed: (){},
             child: Text(GetButtonText(10)),
           ),
           ElevatedButton(
-            onPressed: (){MoveButton(11);},
+            onPressed: (){},
             child: Text(GetButtonText(11)),
           ),
           ElevatedButton(
-            onPressed: (){MoveButton(12);},
+            onPressed: (){},
             child: Text(GetButtonText(12)),
           ),
           ElevatedButton(
-            onPressed: (){MoveButton(13);},
+            onPressed: (){},
             child: Text(GetButtonText(13)),
           ),
           ElevatedButton(
-            onPressed: (){MoveButton(14);},
+            onPressed: (){},
             child: Text(GetButtonText(14)),
           ),
           ElevatedButton(
-            onPressed: (){MoveButton(15);},
+            onPressed: (){},
             child: Text(GetButtonText(15)),
           ),
           ElevatedButton(
-            onPressed: (){MoveButton(16);},
+            onPressed: (){},
             child: Text(GetButtonText(16)),
           ),
           ElevatedButton(
-            onPressed: (){MoveButton(17);},
+            onPressed: (){},
             child: Text(GetButtonText(17)),
           ),
           ElevatedButton(
-            onPressed: (){MoveButton(18);},
+            onPressed: (){},
             child: Text(GetButtonText(18)),
           ),
           ElevatedButton(
-            onPressed: (){MoveButton(19);},
+            onPressed: (){},
             child: Text(GetButtonText(19)),
           ),
           ElevatedButton(
-            onPressed: (){
-              setState(() {
-                pg.Shuffle();
-              });
-            },
+            onPressed: (){},
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.cyan,
             ),
             child: Text(
               'Start',
-              style:  TextStyle(fontSize: 18),
+              style: TextStyle(fontSize: 18),
             ),
           ),
         ],
       ),
     );
-  }
-
-  void MoveButton(int index){
-    setState(() {
-      pg.SwapPosition(index);
-    });
   }
 }
