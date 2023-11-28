@@ -30,7 +30,8 @@ class MyApp extends StatelessWidget {
       // ),
       //home: const MyForm(),
       //home: BmiMain(),
-      home: BmiResult(height: 1.0, weight: 2.0,),
+      // home: BmiResult(height: 1.0, weight: 2.0,),
+      home : BmiMain(),
     );
   }
 }
