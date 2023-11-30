@@ -49,6 +49,7 @@ class _StopWatchPageState extends State<StopWatchPage> {
   Widget _buildBody(){
     var sec = _time ~/100; //~정수연산에서 몫을 표시함
     var hundredth = '$_time % 100'.padLeft(2,'0');
+
     return Center(
       child: Padding(
         padding: EdgeInsets.only(top: 30),
@@ -61,19 +62,17 @@ class _StopWatchPageState extends State<StopWatchPage> {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
-                      '0',
+                      '$sec',
                       style: TextStyle(fontSize: 50),
                     ),
-                    Text('00'),
+                    Text('$hundredth'),
                   ],
                 ),
                 Container(
                   width: 100,
                   height: 200,
                   child: ListView(
-                    children: [
-
-                    ],
+                    children: _lapTimes.map((time) => Text(time)).toList(),
                   ),
                 ),
               ],
@@ -83,13 +82,18 @@ class _StopWatchPageState extends State<StopWatchPage> {
               bottom: 10,
               child: FloatingActionButton(
                   onPressed: (){},
+                child: Icon(Icons.rotate_left),
               ),
             ),
             Positioned(
               right: 10,
               bottom: 10,
               child: ElevatedButton(
-                  onPressed: (){},
+                  onPressed: (){
+                    setState(() {
+                      _recordLapTime('#sec.$hundredth');
+                    });
+                  },
                   child: Text('랩 타임'),
               ),
             ),
@@ -120,5 +124,18 @@ class _StopWatchPageState extends State<StopWatchPage> {
   }
   void _puase(){
     _timer?.cancel();
+  }
+
+  void _reset(){
+    setState(() {
+      _isRunning = false;
+      _timer?.cancel();
+      _lapTimes.clear();
+      _time = 0;
+    });
+  }
+
+  void _recordLapTime(String time){
+    _lapTimes.insert(0, '${_lapTimes.length + 1}등 $time');
   }
 }
