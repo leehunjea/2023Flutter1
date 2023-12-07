@@ -7,14 +7,14 @@ class Page1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        _buildTop(),
-        _buildMiddle(),
-        _buildBottom(),
-      ],
+    return Center(
+      child: Text(
+        '홈페이지 1',
+        style: TextStyle(fontSize: 40),
+      ),
     );
   }
+<<<<<<< HEAD
 
   //메뉴
   Widget _buildTop() {
@@ -162,3 +162,6 @@ class Page1 extends StatelessWidget {
    );
   }
 }
+=======
+}
+>>>>>>> parent of a5c153e (11.16)
